@@ -1,0 +1,12 @@
+{
+    "public_html/yard": {
+        "app_mode": "development",
+        "app_status": "started",
+        "app_uri": "",
+        "config_files": [],
+        "domain": "designcenter.playmorswingsets.com",
+        "env_vars": {},
+        "nodejs_version": "16",
+        "startup_file": "server.js"
+    }
+}

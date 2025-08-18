@@ -1,0 +1,109 @@
+Return-Path: <hunter.hickman31@gmail.com>
+Delivered-To: info@designcenter.playmorswingsets.com
+Received: from server1.webtek.hosting
+	by server1.webtek.hosting with LMTP
+	id WDDOJvefjWIdAwQADGdPmw
+	(envelope-from <hunter.hickman31@gmail.com>)
+	for <info@designcenter.playmorswingsets.com>; Tue, 24 May 2022 23:18:15 -0400
+Return-path: <hunter.hickman31@gmail.com>
+Envelope-to: info@designcenter.playmorswingsets.com
+Delivery-date: Tue, 24 May 2022 23:18:15 -0400
+Received: from mail-ua1-f42.google.com ([209.85.222.42]:36713)
+	by server1.webtek.hosting with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <hunter.hickman31@gmail.com>)
+	id 1nthXM-0016VC-2Z
+	for info@designcenter.playmorswingsets.com;
+	Tue, 24 May 2022 23:18:15 -0400
+Received: by mail-ua1-f42.google.com with SMTP id r22so6920934ual.3
+        for <info@designcenter.playmorswingsets.com>; Tue, 24 May 2022 20:17:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=to:from:date:message-id:in-reply-to:references:subject:mime-version
+         :content-transfer-encoding:content-disposition:precedence
+         :auto-submitted;
+        bh=asxpsYSv0Q1WNsIUqeFG/sKxMl4HdBuDIsMnIXVcx4A=;
+        b=kVlizRVdNNwLXgabdVkFww4iW0Rl1UmPcbyqykey8x3B3dLjMnltwMBObcrji1lxLB
+         wBroaYeYwovMvEkVKc3V9lUGvkWSgF+zu/79jEUYNFFsB8sx2IypudaCaPf0qoa+bLtv
+         ELW4whVaGw0S9AR6oRy5JOeomKXHQ0mynzvV4XGgzFsFTBz0ONBqkAUSaC7p3y81bWvF
+         Oge7nIBzS5syQWrzI1uXB07UqOPZMTVC0/vQdL3KbPAGT+cfauY2zGE5BFMeQ96OeGUC
+         CBhIsuMnQxUNrTQu1wpZDkuZl5vXd5vYrMuz0BFwKwjpr5op/Q5zFj2E5VafKRZ70lcR
+         ePIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:to:from:date:message-id:in-reply-to:references
+         :subject:mime-version:content-transfer-encoding:content-disposition
+         :precedence:auto-submitted;
+        bh=asxpsYSv0Q1WNsIUqeFG/sKxMl4HdBuDIsMnIXVcx4A=;
+        b=l4jIwSb+jw3RkQ/vm1d2Iv6Coh2PjxkS7SulH4NiH4OIInP0TCUJjA5ZP/wHH/bcC+
+         Xr4SGQC/RMGzF9fWtKJPne37pLL7GtqK6287ibchw2FlElQKffVUfdWbubAC/q43ArwP
+         6yr4KbMhfP0C03V1mdtoHkEtry6LBe4J4UQkRyzmEADCmXtSMNBD43O/ien6YCN5KQPZ
+         ceDdjPEcSyFbQA7O7eRP7UZatETGECk0sinMDCybf7wDKWmJq1H6tZnooxWY4a/Q8Brf
+         K1CMYq71VkuBTfTufCW+VckyDWtOYPIKUwflgTmioInE7rk7nl0X0wFoIH0oFuGDY7Kv
+         6Gew==
+X-Gm-Message-State: AOAM531bx+aI662BWINYwB/9m+mSz9SjFCtT7CIDdRZcGTUUCSoeAu6C
+	bNVKuwz6hj3sAtG/C0RoRmWNT3bvPcKd7IYimD/1vpQ2rFOyXi1TDWNRtE+PEQ==
+X-Google-Smtp-Source: ABdhPJyoQ7FONpeGg0DOGc7QCJVbArWzJC4XN1Fj4MiUQ2BLVdKZ7A8Om5/FVF23AQ5ZgKgmCmSkXYhHhUYM+wWLtV7iz41Nu12z2SWLUsMN
+X-Received: by 2002:ab0:3907:0:b0:368:a475:d96a with SMTP id b7-20020ab03907000000b00368a475d96amr9992419uaw.2.1653448653964;
+        Tue, 24 May 2022 20:17:33 -0700 (PDT)
+To: info@designcenter.playmorswingsets.com
+From: "Hunter Hickman" <hunter.hickman31@gmail.com>
+Date: Tue, 24 May 2022 20:17:33 -0700
+Message-ID: <CANYSgdrYcim012XW7deQQ-EXFDBwASXfGDMZ9ydbVvQJjePekQ@mail.gmail.com>
+In-Reply-To: <eb2ef9c1-2e7f-8189-1776-6cb67213dada@designcenter.playmorswingsets.com>
+References: <eb2ef9c1-2e7f-8189-1776-6cb67213dada@designcenter.playmorswingsets.com>
+Subject: Re: Confirmation of quote request
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+Precedence: bulk
+X-Autoreply: yes
+Auto-Submitted: auto-replied
+X-Spam-Status: No, score=0.8
+X-Spam-Score: 8
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "server1.webtek.hosting",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  This is no longer an active email account. For business purposes
+    please resend to pastor@reallifenaz.com -- Grace and Peace, 
+ Content analysis details:   (0.8 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+                             in digit
+                             [hunter.hickman31[at]gmail.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [hunter.hickman31[at]gmail.com]
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+  0.6 HTML_MIME_NO_HTML_TAG  HTML-only message, but there is no HTML
+                             tag
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Spam-Flag: NO
+
+PGRpdiBkaXI9Imx0ciI+VGhpcyBpcyBubyBsb25nZXIgYW4gYWN0aXZlIGVtYWlsIGFjY291bnQu
+IMKgRm9yIGJ1c2luZXNzIHB1cnBvc2VzIHBsZWFzZSByZXNlbmQgdG8gPGEgaHJlZj0ibWFpbHRv
+OnBhc3Rvcmh1bnRlckByZWFsbGlmZW5hei5jb20iIHRhcmdldD0iX2JsYW5rIj5wYXN0b3JAcmVh
+bGxpZmVuYXouY29tPC9hPjxicj48YnI+PC9kaXY+PGJyLz48YnIvPi0tIDxici8+PGRpdiBkaXI9
+Imx0ciI+PGRpdj48ZGl2IGRpcj0ibHRyIj48ZGl2IGRpcj0ibHRyIj48ZGl2PkdyYWNlIGFuZCBQ
+ZWFjZSw8L2Rpdj48ZGl2PsKgIMKgUGFzdG9yIEh1bnRlciBBLiBIaWNrbWFuwqA8L2Rpdj48ZGl2
+PsKgIMKgU2VuaW9yIFBhc3RvcjogUmVhbCBMaWZlIE5hemFyZW5lPC9kaXY+PGRpdj7CoCDCoDc3
+NyBGYWlydmlldyBBdmUgR2FsaW9uLCBPaGlvIDQ0ODMzPC9kaXY+PGRpdj7CoCDCoE0uQS4gUGFz
+dG9yYWwgTWluaXN0cnnCoDwvZGl2PjxkaXY+wqAgwqBCLkEuIFBhc3RvcmFsIE1pbmlzdHJ5wqA8
+L2Rpdj48ZGl2PsKgIMKgPGEgaHJlZj0ibWFpbHRvOnBhc3Rvcmh1bnRlckByZWFsbGlmZW5hei5j
+b20iIHRhcmdldD0iX2JsYW5rIj5wYXN0b3JAcmVhbGxpZmVuYXouY29tPC9hPjwvZGl2PjxkaXY+
+wqAgwqBQaG9uZSAjIDU1OS01NTYtNTM4MsKgPC9kaXY+PGRpdj48YnI+PC9kaXY+PC9kaXY+PC9k
+aXY+PC9kaXY+PC9kaXY+PGJyLz4NCg==

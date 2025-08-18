@@ -1,0 +1,6 @@
+[/home2/playmor/public_html]
+htaccess_list = /home2/playmor/public_html/.htaccess
+
+[/home/playmor/public_html]
+htaccess_list = /home/playmor/public_html/.htaccess
+

@@ -1,0 +1,137 @@
+Return-Path: <doriss11@yahoo.com>
+Delivered-To: info@designcenter.playmorswingsets.com
+Received: from server1.webtek.hosting
+	by server1.webtek.hosting with LMTP
+	id KtsjItrysGJelwQADGdPmw
+	(envelope-from <doriss11@yahoo.com>)
+	for <info@designcenter.playmorswingsets.com>; Mon, 20 Jun 2022 18:21:14 -0400
+Return-path: <doriss11@yahoo.com>
+Envelope-to: info@designcenter.playmorswingsets.com
+Delivery-date: Mon, 20 Jun 2022 18:21:14 -0400
+Received: from sonic304-10.consmr.mail.bf2.yahoo.com ([74.6.128.33]:42561)
+	by server1.webtek.hosting with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <doriss11@yahoo.com>)
+	id 1o3Plh-001G60-RE
+	for info@designcenter.playmorswingsets.com;
+	Mon, 20 Jun 2022 18:21:14 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1655763632; bh=Ss8OZRHKROG6EEgd9tY4M1tnUCJpM/u0+u435UaGrJY=; h=Date:Subject:In-Reply-To:From:To:From:Subject:Reply-To; b=p994yTsZWUR93pvYrMC9RchJQS/3PfiNhNRTMFaIUeRlr1C806D87JcpkmP5UJ10nms7xTYDWpxhkz/ezP90po6yWUw/tefHwYfjO++LGz0GtAH/nVWN/hsqDcqVqbIjnF5jRRSS2P24+vWzidR61twotbXM1KELlAcmmtNCBpQ5cokEU7FmuHaoNBHHwcfk++TDL3NjbmpHVicBgdn6yjPpR29+zctN83jjpbIURGgAqK4N9irzMKo+EreUHk92dz59NCk99nEpHCoO2rGrE/R2f7KwD5yLxLLs0FGbb1MAHwEY2+kDi2eoyrHE3aROxIps1L+MgbaqbLv/7kFF/w==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1655763632; bh=xLhOvGfiKPJ5zd4hLQbs65+wE8jM+rpZR5ZfMLmUTh7=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=bJw5aQEKCdq/9NJWKrWN7sa76boagEfOiEdVgLyWNxFLScwVdoPK0rF31omtGIjanOfK2+NYwJto9jdgAZ+X80b3dnGFKnZadI8iTryxkJp0+qNovOrwwGdtdHD4QHTUaJIIcb6H1F3xTAm1yaBEBJNrP9YPamX7sJ3/s4DxmrsfH7vJOwy/lsJyhwibBjCNCvUqXzG8+Y3z/1FUpJIp/84npA8g+GQvH6qpA/9ESeI4eck3BMMj6qfyIH5l9m5RJShzd+8HDSEkmiYAWdqWXdVxhpiCSLxS4sWMkxNbOLC3hBhgkBsFU0GcbAK8geGoD+XIzpioRO9rKjiTGnMSiw==
+Message-ID: <804839708.2082010.1655763632518@yahoo.com>
+X-YMail-OSG: Su8hHy0VM1lO88xUiTr270Vx5xAMnsC1FEFvSM378rEj9W8Q1BlsnMXRXirLRa7
+ luNiFx_TI5owoNARZxf5xfRzHqkQ6BE47lwfTAUQCH_tuOb0XxcHXdTUJGUajSemA27KwzXq3wos
+ bchYAaIXF4F5T6NdycXfRUPm56ZZcVytHssNCo0er_H6Pf.D545doFIRibZZzZsFQ6_Z.c1bkKjf
+ U9FJPFClR_hrws9z6BGmU6vKJ64FpqlfoUB1kcLlwgLo3NOOMTR6H23EeorrQQtfpQsolYLaljng
+ 9HmB3zg0cb4YbJEQOsep_RVMhSmbnMvsKLRqA671W.Uz6AYPr5ek8H9FIn50K1rJ3ClSGolTRf7H
+ WJM4ui8cGMh3_DSwzndY6DlAxecfeHT6QgQrP05aIc_lda.R61.jOw1C3VE8A.6Nr_n9EfheCWBv
+ ljd4hpEt4K1VYAfiagY8eM736txP9dPTmYcqpZN1fUX8mF1L9j4eyZDERnXBJ8.KEQv_88VF4L6Z
+ bgN3sX0SYegXtxNfV0JCzdDq0btVeccnCiFEppGO7gHmtEw3WNF1UJnhs5ujJ_AS4iwD1_795Zhs
+ 4.hE54tjg8HiGqp_u1jEpv2jYlhzK8bV7c.rgne2bpOXNJnMmjA_lfU4RVpUhqenxGskzDFwTrVi
+ 8GMeWzMNEMFgf7m.c7Edaf1wA9ieanV_zMgQR98NSyBWNauXgW5Z0etsIUtAS1Uqnl47GCaDV4qU
+ jEb954jdEJsFhbjbRbj6v6A8FgjmS_gZFOyj2ZazyVf2JJ.B.Trnk7vjsbIGiRQpa.S.MMXrM4BK
+ LdOwTX6dRhfeC9eyirVqlajn3iZ.bwHenxjsZPgVkVdv7y1WI2ROT1vNaguKb.MJMSjHcG1oEIMn
+ pkEMtZU41J2v8DyibcqOki0dvpx2FxlYrEw4M6wWyQctggVUbqQYo0yfbZMaUSwSZQiPIY_zzwc9
+ PmOIGR1DHqGrYdlxC6iqM87uz7EFrjhD9pO2xbQua7YWHK2fveCX1FkdZEnL3nCnOWFiO7WxdFYi
+ bgDYMDW2xnAacRgJUcf87KypSdFxtgvGiAVyL4loK_uhqYHz7EN5rQpSP82MGupFEMBbnT323sUr
+ FoVbMiFKJsfdymYIZlTKTopQjBETpVMl9FtSAixeI1Fxy2kH_jjwQbu6zaw3A_Ek1.hMKt9nHvSn
+ Vl9VskSr.pEmDBlliqUSA6eWkVbfZ8qW_eIvkF_czzjShhKlnqOvM6h6lEeNF1mYalKaiWDwU.oL
+ VRhoyfPfKfXTKHJB5bFGYpaWUUnfuHlu2CBor0oH9GG4KLo9VSpVlhla51wut8uAjzGhDsUwc2cY
+ Di.HtLnBiP6SXoDX2aeZxa_WEoAYSR2.rXfLH298LLCX3i8c0ZgQW6jOzkCkHqVDasXdpHVhx4de
+ 9dRDwIz5QSqVbA6YEAgU8P.eZRKZ1QjYq24Lxk6qmn8Maf2TRrg6Y.Sa2axmaESW.pzhdgRSWV4x
+ 5JbOI9J8Kspyoprpy4jXsH3.V2N4O2Hx3.wAQ.eFYfpz7w3uWVmyzo2WK_q_DY.5VsiAKb0.6re4
+ OqakwIzEj108E2_Y4FGFN34Jclggj_rntq9LrcBROYEPXoXwrdX4KaXk0cjxfQKZ_4xsvEDqJEwj
+ GQ0U2I9zbBue8rGG3IAY49SpVvB5pxsAOH9BQGbyLrPj7PP77BEweHOG5bo0kusFdU4gFRKYGGf5
+ 8xXgMBPQuFffJYrkCdD.g0zOSSR1LAImadqIyyGvriWvV8VSRX0tRowjFB29OIq2JBenkVsfzWAP
+ RVv.SgA31GBMcq0U1rcNX4u5oM8jQicqbSONbrwK58I_DDj1ZN.vF3R_NXWgGakWiEj.EucHZUmo
+ IIwxsorko5cpZXVilo51EWIBA3.U.CnnYX39mXshOQjyfRtESYxF6.AjjawE4YgwEs6PiwF8cRqO
+ cc21LF9LmO_Hw6xhHnfrgQ.bhKupWQV.WF55cK1__IPSODuWwgAhM8qXJiF9Nhcd3yr4bj_jYKfX
+ Do7EgUYgRLipJthTjW6iA6cg2wv1qndp5GWbjdDfyomdWnj7GGvnVP40ZbEK6P6a4LZz6rFulhh1
+ bucYaL3EYDeqvK94PE1htyfXOyWYINcP99Ag64HIn6Cq3JcRBrKwWf.CjuSPjdxRTbz6d6xqSpTP
+ PcCvZK_rTekPUIX6ij.juIW9npu8hTzWKRBgB.earMprsJHrdto4hcK2SvsiYbrbZ7FEXaYwWs8A
+ yAk2tZOBRC_9.q1LKa4.ehFNvF2mdD8jGWhDt8ydO9ZqoxquhWRKxqMoj3D6HNrq6IoI3pDcEtHU
+ SvlHm.FyMryLKlUIT0r85SjVUwNsIuox993Pa5Q--
+X-Sonic-MF: <doriss11@yahoo.com>
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic304.consmr.mail.bf2.yahoo.com with HTTP; Mon, 20 Jun 2022 22:20:32 +0000
+Received: by hermes--canary-production-gq1-677bd878b7-wc7mq (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 6dd33df3a27d0436cbfb95048e1fb2f5;
+          Mon, 20 Jun 2022 22:20:29 +0000 (UTC)
+SavedFromEmail: doriss11@yahoo.com
+Date: Mon, 20 Jun 2022 18:20:27 -0400
+Subject: RE: Confirmation of quote request
+In-Reply-To: <db6e38e7-daf9-812a-e0e0-57951f389423@designcenter.playmorswingsets.com>
+Importance: normal
+From: D <doriss11@yahoo.com>
+To: "info@designcenter.playmorswingsets.com"
+ <info@designcenter.playmorswingsets.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="--_com.samsung.android.email_3949928621937910"
+X-Mailer: WebService/1.1.20280 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+Content-Length: 2042
+X-Spam-Status: No, score=0.0
+X-Spam-Score: 0
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "server1.webtek.hosting",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Thank you. Looking forward to receiving quote. Please email
+    it if possible. DorisSent from my Galaxy -------- Original message --------From:
+    6/17/22 12:57 PM (GMT-05:00) To: Confirmation of quote [...] 
+ Content analysis details:   (0.0 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [doriss11[at]yahoo.com]
+  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+                             in digit
+                             [doriss11[at]yahoo.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.0 MSGID_FROM_MTA_HEADER  Message-Id was added by a relay
+X-Spam-Flag: NO
+
+----_com.samsung.android.email_3949928621937910
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: base64
+
+VGhhbmsgeW91LiBMb29raW5nIGZvcndhcmQgdG8gcmVjZWl2aW5nIHF1b3RlLiBQbGVhc2UgZW1h
+aWwgaXQgaWYgcG9zc2libGUuwqBEb3Jpc1NlbnQgZnJvbSBteSBHYWxheHkKLS0tLS0tLS0gT3Jp
+Z2luYWwgbWVzc2FnZSAtLS0tLS0tLUZyb206IGluZm9AZGVzaWduY2VudGVyLnBsYXltb3Jzd2lu
+Z3NldHMuY29tIERhdGU6IDYvMTcvMjIgIDEyOjU3IFBNICAoR01ULTA1OjAwKSBUbzogZG9yaXNz
+MTFAeWFob28uY29tIFN1YmplY3Q6IENvbmZpcm1hdGlvbiBvZiBxdW90ZSByZXF1ZXN0IFRoYW5r
+cyBmb3IgeW91ciBzZWxlY3Rpb24uT3VyIHJlcHJlc2VudGF0aXZlIHdpbGwgYmUgaW4gdG91Y2gg
+d2l0aCBhIHF1b3RlIHNob3J0bHk=
+
+----_com.samsung.android.email_3949928621937910
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PGh0bWw+PGhlYWQ+PG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1UeXBlIiBjb250ZW50PSJ0ZXh0
+L2h0bWw7IGNoYXJzZXQ9VVRGLTgiPjwvaGVhZD48Ym9keSBkaXI9ImF1dG8iPjxkaXYgZGlyPSJh
+dXRvIj5UaGFuayB5b3UuIExvb2tpbmcgZm9yd2FyZCB0byByZWNlaXZpbmcgcXVvdGUuIFBsZWFz
+ZSBlbWFpbCBpdCBpZiBwb3NzaWJsZS4mbmJzcDs8L2Rpdj48ZGl2IGRpcj0iYXV0byI+PGJyPjwv
+ZGl2PjxkaXYgZGlyPSJhdXRvIj5Eb3JpczwvZGl2PjxkaXYgZGlyPSJhdXRvIj48YnI+PC9kaXY+
+PGRpdiBkaXI9ImF1dG8iPjxicj48L2Rpdj48ZGl2IGRpcj0iYXV0byI+PGJyPjwvZGl2PjxkaXYg
+aWQ9ImNvbXBvc2VyX3NpZ25hdHVyZSIgZGlyPSJhdXRvIj48ZGl2IHN0eWxlPSJmb250LXNpemU6
+MTJweDtjb2xvcjojNTc1NzU3IiBkaXI9ImF1dG8iPlNlbnQgZnJvbSBteSBHYWxheHk8L2Rpdj48
+L2Rpdj48ZGl2IGRpcj0iYXV0byI+PGJyPjwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXYgYWxpZ249
+ImxlZnQiIGRpcj0iYXV0byIgc3R5bGU9ImZvbnQtc2l6ZToxMDAlO2NvbG9yOiMwMDAwMDAiPjxk
+aXY+LS0tLS0tLS0gT3JpZ2luYWwgbWVzc2FnZSAtLS0tLS0tLTwvZGl2PjxkaXY+RnJvbTogaW5m
+b0BkZXNpZ25jZW50ZXIucGxheW1vcnN3aW5nc2V0cy5jb20gPC9kaXY+PGRpdj5EYXRlOiA2LzE3
+LzIyICAxMjo1NyBQTSAgKEdNVC0wNTowMCkgPC9kaXY+PGRpdj5UbzogZG9yaXNzMTFAeWFob28u
+Y29tIDwvZGl2PjxkaXY+U3ViamVjdDogQ29uZmlybWF0aW9uIG9mIHF1b3RlIHJlcXVlc3QgPC9k
+aXY+PGRpdj48YnI+PC9kaXY+PC9kaXY+VGhhbmtzIGZvciB5b3VyIHNlbGVjdGlvbi48YnI+PGJy
+Pk91ciByZXByZXNlbnRhdGl2ZSB3aWxsIGJlIGluIHRvdWNoIHdpdGggYSBxdW90ZSBzaG9ydGx5
+PC9ib2R5PjwvaHRtbD4=
+
+----_com.samsung.android.email_3949928621937910--
+

@@ -1,0 +1,73 @@
+Return-Path: <>
+Delivered-To: info@designcenter.playmorswingsets.com
+Received: from server1.webtek.hosting
+	by server1.webtek.hosting with LMTP
+	id eIiiNIx5YWLhpQQADGdPmw
+	(envelope-from <>)
+	for <info@designcenter.playmorswingsets.com>; Thu, 21 Apr 2022 11:34:36 -0400
+Return-path: <>
+Envelope-to: info@designcenter.playmorswingsets.com
+Delivery-date: Thu, 21 Apr 2022 11:34:36 -0400
+Received: from mailnull by server1.webtek.hosting with local (Exim 4.95)
+	id 1nhC7S-001Nae-T9
+	for info@designcenter.playmorswingsets.com;
+	Wed, 20 Apr 2022 11:19:50 -0400
+X-Failed-Recipients: info@playmorswingsets.com
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@server1.webtek.hosting>
+To: info@designcenter.playmorswingsets.com
+References: <7186bb91-766a-3d3e-f957-6c884734b871@designcenter.playmorswingsets.com>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1650467990-eximdsn-1142698020
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1nhC7S-001Nae-T9@server1.webtek.hosting>
+Date: Wed, 20 Apr 2022 11:19:50 -0400
+
+--1650467990-eximdsn-1142698020
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  info@playmorswingsets.com
+    host mx.zoho.com [136.143.191.44]
+    SMTP error from remote mail server after end of data:
+    554 5.2.3 MailPolicy violation Error delivering to mailboxes
+
+--1650467990-eximdsn-1142698020
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; server1.webtek.hosting
+
+Action: failed
+Final-Recipient: rfc822;info@playmorswingsets.com
+Status: 5.0.0
+Remote-MTA: dns; mx.zoho.com
+Diagnostic-Code: smtp; 554 5.2.3 MailPolicy violation Error delivering to mailboxes
+
+--1650467990-eximdsn-1142698020
+Content-type: text/rfc822-headers
+
+Return-path: <info@designcenter.playmorswingsets.com>
+Received: from server1.webtek.hosting ([67.227.148.146]:54340)
+	by server1.webtek.hosting with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <info@designcenter.playmorswingsets.com>)
+	id 1nhC7S-001NZN-3w
+	for info@playmorswingsets.com;
+	Wed, 20 Apr 2022 11:19:48 -0400
+Content-Type: multipart/mixed; boundary="--_NmP-52fd7ea2c99d7914-Part_1"
+From: info@designcenter.playmorswingsets.com
+To: info@playmorswingsets.com
+Reply-To: playmorswingsets8990@gmail.com
+Subject: Quote request from: test test
+Message-ID:
+ <7186bb91-766a-3d3e-f957-6c884734b871@designcenter.playmorswingsets.com>
+Date: Wed, 20 Apr 2022 15:19:47 +0000
+MIME-Version: 1.0
+X-Exim-DSN-Information: Due to administrative limits only headers are returned
+
+
+--1650467990-eximdsn-1142698020--

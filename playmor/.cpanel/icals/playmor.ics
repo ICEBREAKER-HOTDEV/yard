@@ -1,0 +1,5 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//cPanel Horde Calendar Exporter//export_horde_calendars_to_ics//EN
+X-WR-CALNAME:Calendar
+END:VCALENDAR
