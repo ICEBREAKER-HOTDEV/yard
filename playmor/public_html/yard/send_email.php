@@ -23,9 +23,37 @@ if (!$input) {
     exit();
 }
 
-// Zeptomail configuration
-$zeptomailToken = 'Zoho-enczapikey wSsVR60lrhX2W6Z7mDT5c+pumw4EAAyiHRwojlOpuHb/Ha2W/cdokUDLAgKkG6AeQ2RvETdAp+l4zhsDgTtdi9okzAtRDCiF9mqRe1U4J3x17qnvhDzJXmtclRuKK40AwgRrmWhgGs0n+g==';
-$salesEmail = 'info@playmorswingsets.com';
+// Load secure configuration
+$config = null;
+if (file_exists(__DIR__ . '/config.php')) {
+    $config = include __DIR__ . '/config.php';
+} elseif (file_exists(__DIR__ . '/.env')) {
+    // Parse .env file
+    $lines = file(__DIR__ . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $config = ['zeptomail' => [], 'email' => []];
+    foreach ($lines as $line) {
+        if (strpos($line, '#') === 0) continue; // Skip comments
+        list($key, $value) = explode('=', $line, 2);
+        switch ($key) {
+            case 'ZEPTOMAIL_TOKEN':
+                $config['zeptomail']['token'] = $value;
+                break;
+            case 'SALES_EMAIL':
+                $config['email']['sales_email'] = $value;
+                break;
+        }
+    }
+}
+
+if (!$config || !isset($config['zeptomail']['token'])) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Email configuration not found. Please check config.php or .env file.']);
+    exit();
+}
+
+// Secure configuration
+$zeptomailToken = $config['zeptomail']['token'];
+$salesEmail = $config['email']['sales_email'];
 
 // Generate HTML email content
 $htmlContent = "
@@ -49,7 +77,7 @@ $htmlContent .= "
   
   <div style=\"margin: 20px 0;\">
     <h3>Design Preview</h3>
-    <img src=\"" . htmlspecialchars($input['design_image']) . "\" style=\"max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;\" alt=\"Playground Design\" />
+    <img src=\"cid:design-preview\" style=\"max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;\" alt=\"Playground Design\" />
   </div>
   
   <div style=\"background: #f0f8f0; padding: 20px; border-radius: 8px;\">
@@ -109,13 +137,40 @@ $emailPayload = [
     'textbody' => $textContent
 ];
 
+// Add design preview image as inline attachment for CID reference
+if (!empty($input['design_image'])) {
+    // Extract base64 data from data URL
+    $imageData = $input['design_image'];
+    if (strpos($imageData, 'data:image/png;base64,') === 0) {
+        $base64Data = substr($imageData, strlen('data:image/png;base64,'));
+        $emailPayload['inline_images'] = [[
+            'content' => $base64Data,
+            'mime_type' => 'image/png',
+            'name' => 'design-preview.png',
+            'cid' => 'design-preview'
+        ]];
+    }
+}
+
 // Add PDF attachment if provided
 if (!empty($input['parts_pdf'])) {
-    $emailPayload['attachments'] = [[
+    if (!isset($emailPayload['attachments'])) $emailPayload['attachments'] = [];
+    $emailPayload['attachments'][] = [
         'content' => $input['parts_pdf'],
         'mime_type' => 'application/pdf',
         'name' => 'quote-' . $input['first_name'] . '-' . $input['last_name'] . '-' . time() . '.pdf'
-    ]];
+    ];
+}
+
+// Add blueprint JSON attachment if provided
+if (!empty($input['blueprint_json'])) {
+    if (!isset($emailPayload['attachments'])) $emailPayload['attachments'] = [];
+    $blueprintContent = base64_encode($input['blueprint_json']);
+    $emailPayload['attachments'][] = [
+        'content' => $blueprintContent,
+        'mime_type' => 'application/json',
+        'name' => 'design-' . $input['first_name'] . '-' . $input['last_name'] . '-' . time() . '.json'
+    ];
 }
 
 // Send email via Zeptomail

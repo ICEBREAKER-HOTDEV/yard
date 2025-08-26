@@ -36,12 +36,17 @@ app.post('/send_email.php', async (req, res) => {
             notes,
             design_image,
             parts_pdf,
-            part_list
+            part_list,
+            blueprint_json
         } = req.body;
 
-        // Zeptomail configuration
-        const zeptomailToken = 'Zoho-enczapikey wSsVR60lrhX2W6Z7mDT5c+pumw4EAAyiHRwojlOpuHb/Ha2W/cdokUDLAgKkG6AeQ2RvETdAp+l4zhsDgTtdi9okzAtRDCiF9mqRe1U4J3x17qnvhDzJXmtclRuKK40AwgRrmWhgGs0n+g==';
-        const salesEmail = 'info@playmorswingsets.com';
+        // Zeptomail configuration from environment variables
+        const zeptomailToken = process.env.ZEPTOMAIL_TOKEN;
+        const salesEmail = process.env.SALES_EMAIL || 'info@playmorswingsets.com';
+        
+        if (!zeptomailToken) {
+            throw new Error('ZEPTOMAIL_TOKEN environment variable not set. Please check .env file.');
+        }
 
         // Generate HTML email content
         const htmlContent = `
@@ -60,7 +65,7 @@ app.post('/send_email.php', async (req, res) => {
           
           <div style="margin: 20px 0;">
             <h3>Design Preview</h3>
-            <img src="${design_image}" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;" alt="Playground Design" />
+            <img src="cid:design-preview" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;" alt="Playground Design" />
           </div>
           
           <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
@@ -120,13 +125,36 @@ app.post('/send_email.php', async (req, res) => {
             textbody: textContent
         };
 
+        // Add design preview image as inline attachment for CID reference
+        if (design_image && design_image.startsWith('data:image/png;base64,')) {
+            const base64Data = design_image.substring('data:image/png;base64,'.length);
+            emailPayload.inline_images = [{
+                content: base64Data,
+                mime_type: 'image/png',
+                name: 'design-preview.png',
+                cid: 'design-preview'
+            }];
+        }
+        
         // Add PDF attachment if provided
         if (parts_pdf) {
-            emailPayload.attachments = [{
+            if (!emailPayload.attachments) emailPayload.attachments = [];
+            emailPayload.attachments.push({
                 content: parts_pdf,
                 mime_type: 'application/pdf',
                 name: `quote-${first_name}-${last_name}-${Date.now()}.pdf`
-            }];
+            });
+        }
+        
+        // Add blueprint JSON attachment if provided
+        if (blueprint_json) {
+            if (!emailPayload.attachments) emailPayload.attachments = [];
+            const blueprintContent = Buffer.from(blueprint_json).toString('base64');
+            emailPayload.attachments.push({
+                content: blueprintContent,
+                mime_type: 'application/json',
+                name: `design-${first_name}-${last_name}-${Date.now()}.json`
+            });
         }
 
         // Send email via Zeptomail
