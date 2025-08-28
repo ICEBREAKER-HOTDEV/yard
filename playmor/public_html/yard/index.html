@@ -1944,6 +1944,7 @@
           if (restore_camera) {
             camera.position.set(0, 10, 10);
             orbitControls.update();
+        if (window.syncWorldRotationWithCamera) syncWorldRotationWithCamera();
           }
         }
       }
@@ -3109,6 +3110,7 @@
         context.lineDashOffset = dashOffset--;
 
         orbitControls.update();
+        if (window.syncWorldRotationWithCamera) syncWorldRotationWithCamera();
 
         zum_slider.value = camera.position
           .clone()
@@ -3620,6 +3622,7 @@
             .multiplyScalar(zum_slider.value)
         );
         orbitControls.update();
+        if (window.syncWorldRotationWithCamera) syncWorldRotationWithCamera();
       };
       const Zumin = (args) => {
         if (--zum_slider.value < 1) zum_slider.value = 1;
@@ -3631,6 +3634,7 @@
             .multiplyScalar(zum_slider.value)
         );
         orbitControls.update();
+        if (window.syncWorldRotationWithCamera) syncWorldRotationWithCamera();
       };
       const Zumout = (args) => {
         if (++zum_slider.value > 49) zum_slider.value = 49;
@@ -3642,6 +3646,7 @@
             .multiplyScalar(zum_slider.value)
         );
         orbitControls.update();
+        if (window.syncWorldRotationWithCamera) syncWorldRotationWithCamera();
       };
       mulch_length_slider.oninput = (args) => {
         if (mulch) mulch.build({ depth: parseInt(mulch_length_slider.value) });
@@ -3988,6 +3993,7 @@
         camera.position.normalize();
         camera.position.multiplyScalar(d);
         orbitControls.update();
+        if (window.syncWorldRotationWithCamera) syncWorldRotationWithCamera();
       };
       const Show_contact_tab = (args) => {
         contact_tab_button.className = "foreground_tab_button";
@@ -4441,16 +4447,15 @@
         plug_model =
           Categories[category_index].children[item_index].model.clone();
 
-        if(!plug_model.mesh.children[0].name.includes("King") && !plug_model.mesh.children[0].name.includes("summitglb")){
-          // Apply rotation to all objects based on initial camera view (90 degrees)
-          // This ensures objects align with the rotated camera perspective
-          plug_model.mesh.rotation.y = 0; // 90 degrees in radians
-          plug_model.yaw = 90; // Set yaw for consistency with attachment system
-        } else {
-          // Apply rotation to all objects based on initial camera view (90 degrees)
-          // This ensures objects align with the rotated camera perspective
+        // Check tower type and apply correct rotation for front-facing direction
+        if(plug_model.mesh.children[0].name.includes("King") || plug_model.mesh.children[0].name.includes("summitglb")){
+          // King's Tower and Watchtower need 90-degree rotation due to different front direction
           plug_model.mesh.rotation.y = Math.PI / 2; // 90 degrees in radians
           plug_model.yaw = 90; // Set yaw for consistency with attachment system
+        } else {
+          // Other towers use standard orientation
+          plug_model.mesh.rotation.y = 0; // 0 degrees
+          plug_model.yaw = 0; // Set yaw for consistency with attachment system
         }
         
         // Apply default gray color to trim/accessories when cloned
@@ -4871,6 +4876,10 @@
         scene = new THREE.Scene();
         white_color = new THREE.Color("white");
 
+        // Create world group to rotate all 3D objects to match camera rotation
+        window.worldGroup = new THREE.Group();
+        scene.add(worldGroup);
+
         camera = new THREE.PerspectiveCamera(50, 1, 0.1, 20000);
 
         let ambientLight = new THREE.AmbientLight(0x808080);
@@ -4959,6 +4968,39 @@
           distance * Math.cos(angleZ)  // Z component with Z rotation
         );
         camera.lookAt(intersection_point);
+        
+        // Function to synchronize world rotation with camera rotation
+        window.syncWorldRotationWithCamera = function() {
+          // Calculate camera's Y rotation based on its position relative to center
+          const cameraVector = camera.position.clone().normalize();
+          const cameraYRotation = Math.atan2(cameraVector.x, cameraVector.z);
+          
+          // Apply opposite rotation to world group to keep objects aligned
+          worldGroup.rotation.y = -cameraYRotation;
+          
+          console.log('World rotation synced:', worldGroup.rotation.y * 180 / Math.PI, 'degrees');
+        };
+        
+        // Apply initial world rotation based on initial camera position
+        syncWorldRotationWithCamera();
+        
+        // Helper function to test different camera rotations
+        window.setCameraRotation = function(degrees) {
+          const radians = degrees * Math.PI / 180;
+          const distance = camera.position.length();
+          
+          camera.position.set(
+            distance * Math.sin(radians),
+            camera.position.y,
+            distance * Math.cos(radians)
+          );
+          
+          camera.lookAt(intersection_point);
+          orbitControls.update();
+          syncWorldRotationWithCamera();
+          
+          console.log('Camera rotation set to:', degrees, 'degrees');
+        };
 
         //document . oncontextmenu    = event => event . preventDefault ( )
         window.addEventListener("resize", Resize, false);
