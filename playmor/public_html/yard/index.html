@@ -838,6 +838,65 @@
       #instructions_content {
         width: 100%;
       }
+
+      #rotation-hint {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-family: Arial;
+        font-size: 14px;
+        z-index: 1000;
+        display: none;
+        animation: fadeInUp 0.3s ease;
+        pointer-events: none;
+      }
+
+      #rotation-hint .key {
+        display: inline-block;
+        background: #333;
+        color: white;
+        padding: 4px 8px;
+        margin: 0 4px;
+        border-radius: 4px;
+        font-weight: bold;
+        border: 1px solid #666;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateX(-50%) translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+
+      .rotation-feedback {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(76, 175, 80, 0.9);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-family: Arial;
+        font-size: 12px;
+        pointer-events: none;
+        animation: popUp 0.3s ease;
+      }
+
+      @keyframes popUp {
+        0% { opacity: 0; transform: translateX(-50%) scale(0.8); }
+        100% { opacity: 1; transform: translateX(-50%) scale(1); }
+      }
     </style>
   </head>
 
@@ -1502,7 +1561,7 @@
                     style="height: 49.6111px"
                   />
                 </td>
-                <td>TAP SPACE BAR TO ROTATE TOWERS, SLIDES AND SWINGS</td>
+                <td>TAP SPACE BAR TO CHANGE CONNECTION POINT</td>
               </tr>
               <tr id="esc_row">
                 <td>
@@ -1638,6 +1697,11 @@
         <div id="small_throbber" class="throbber_arc"></div>
         <div id="tiny_throbber" class="throbber_arc"></div>
       </div>
+    </div>
+
+    <!-- Rotation hint tooltip -->
+    <div id="rotation-hint">
+      Press <span class="key">SPACE</span> to change connection point
     </div>
 
     <script>
@@ -3546,6 +3610,9 @@
               plug_model = null;
               plug_joint_index = -1;
               Mode.mode = Mode.normal;
+              
+              // Hide rotation hint when object is successfully placed
+              document.getElementById('rotation-hint').style.display = 'none';
 
               Show_items();
               // Set_up_email ()
@@ -3596,6 +3663,9 @@
                 plug_model = null;
                 plug_joint = null;
                 Mode.mode = Mode.normal;
+                
+                // Hide rotation hint when object is successfully placed
+                document.getElementById('rotation-hint').style.display = 'none';
                 /*
                         if ( box3Helper ) scene . remove ( box3Helper )
                         box = new THREE . Box3 ()
@@ -4402,6 +4472,9 @@
               plug_model = null;
 
               Mode.mode = Mode.normal;
+              
+              // Hide rotation hint when canceling object placement
+              document.getElementById('rotation-hint').style.display = 'none';
 
               Hide_options();
             }
@@ -4426,17 +4499,53 @@
                     break;
                 }
               } else {
+                let feedbackText = "";
+
                 if (++plug_joint_index >= plug_model.joints.length)
                   plug_joint_index = 0;
 
                 plug_joint = plug_model.joints[plug_joint_index];
 
                 plug_model.yaw = plug_joint_index * 90;
+                // Show joint selection feedback
+                feedbackText = "Changed Connection point";
+
+                // Show joint selection feedback
+                showRotationFeedback(feedbackText);
               }
             }
             break;
         }
       };
+      
+      const showRotationFeedback = (text) => {
+        // Remove any existing feedback
+        const existingFeedback = document.querySelector('.rotation-feedback');
+        if (existingFeedback) {
+          existingFeedback.remove();
+        }
+        
+        // Create new feedback element
+        const feedback = document.createElement('div');
+        feedback.className = 'rotation-feedback';
+        feedback.textContent = text;
+        
+        // Position it near the object (use screen center for now)
+        feedback.style.position = 'fixed';
+        feedback.style.top = '50%';
+        feedback.style.left = '50%';
+        feedback.style.transform = 'translate(-50%, -50%)';
+        
+        document.body.appendChild(feedback);
+        
+        // Remove after animation
+        setTimeout(() => {
+          if (feedback.parentNode) {
+            feedback.parentNode.removeChild(feedback);
+          }
+        }, 1000);
+      };
+      
       const Item_clicked = (args) => {
         picked_mesh = null;
         host_joint = null;
@@ -4486,6 +4595,22 @@
             plug_joint = plug_model.joints[plug_joint_index];
           }
           Mode.mode = Mode.plugging;
+          
+          setTimeout(()=>{
+            // Show rotation hint when placing an object (only for multi-joint objects)
+            if (plug_model.joints.length > 1) {
+              const rotationHint = document.getElementById('rotation-hint');
+              
+              rotationHint.style.display = 'block';
+              
+              // Auto-hide after 5 seconds
+              setTimeout(() => {
+                if (rotationHint.style.display === 'block') {
+                  rotationHint.style.display = 'none';
+                }
+              }, 5000);
+            }
+          }, 100);
         } else {
           models_with_available_joints.push(plug_model);
           picked_meshes.push(plug_model.mesh);
